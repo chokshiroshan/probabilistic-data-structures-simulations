@@ -188,6 +188,12 @@ export default function BloomFilterSimulation() {
     }
   }, [])
 
+  // Update the setCheckWord function to reset checkResult
+  const handleCheckWordChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckWord(e.target.value)
+    setCheckResult(null) // Reset the check result when the input changes
+  }, [])
+
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6 relative">
         <ArrowLeft 
@@ -211,11 +217,20 @@ export default function BloomFilterSimulation() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <Label className="text-lg font-semibold">Hash Functions:</Label>
-        <Tabs defaultValue={selectedHashes.join(',')} onValueChange={handleHashChange}>
-          <TabsList className="grid w-full grid-cols-3 gap-2 sm:grid-cols-1">
-            <TabsTrigger value="murmur3,fnv1a" className="text-sm sm:text-xs">Murmur3 + FNV-1a</TabsTrigger>
-            <TabsTrigger value="murmur3,djb2" className="text-sm sm:text-xs">Murmur3 + DJB2</TabsTrigger>
-            <TabsTrigger value="fnv1a,djb2" className="text-sm sm:text-xs">FNV-1a + DJB2</TabsTrigger>
+        <Tabs defaultValue={selectedHashes.join(',')} onValueChange={handleHashChange} className="w-full">
+           <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="murmur3,fnv1a" className="px-2 py-1 text-sm sm:text-base">
+              <span className="hidden sm:inline">Murmur3 + FNV-1a</span>
+              <span className="sm:hidden">M3 + FNV</span>
+            </TabsTrigger>
+            <TabsTrigger value="murmur3,djb2" className="px-2 py-1 text-sm sm:text-base">
+              <span className="hidden sm:inline">Murmur3 + DJB2</span>
+              <span className="sm:hidden">M3 + DJB2</span>
+            </TabsTrigger>
+            <TabsTrigger value="fnv1a,djb2" className="px-2 py-1 text-sm sm:text-base">
+              <span className="hidden sm:inline">FNV-1a + DJB2</span>
+              <span className="sm:hidden">FNV + DJB2</span>
+            </TabsTrigger>
           </TabsList>
         </Tabs>
       </motion.div>
@@ -290,7 +305,7 @@ export default function BloomFilterSimulation() {
           <Input
             type="text"
             value={checkWord}
-            onChange={(e) => setCheckWord(e.target.value)}
+            onChange={handleCheckWordChange} // Use the new handler
             onKeyPress={(e) => handleKeyPress(e, checkBloomFilter)}
             placeholder="Enter a word to check"
             className="flex-grow"

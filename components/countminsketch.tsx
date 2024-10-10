@@ -212,6 +212,12 @@ export default function CountMinSketchSimulation() {
     }
   }, [])
 
+  // Update the setQueryWord function to reset queryResult
+  const handleQueryWordChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setQueryWord(e.target.value)
+    setQueryResult(null) // Reset the query result when the input changes
+  }, [])
+
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6 relative">
         <ArrowLeft 
@@ -323,7 +329,7 @@ export default function CountMinSketchSimulation() {
           <Input
             type="text"
             value={queryWord}
-            onChange={(e) => setQueryWord(e.target.value)}
+            onChange={handleQueryWordChange} // Use the new handler
             onKeyPress={(e) => handleKeyPress(e, querySketch)}
             placeholder="Enter a word to query"
             className="flex-grow"
