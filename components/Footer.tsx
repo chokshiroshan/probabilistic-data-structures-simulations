@@ -2,11 +2,11 @@ import React from 'react';
 import { Twitter, Linkedin, Coffee, Briefcase } from 'lucide-react';
 
 const Footer = () => {
-  const handleHireMe = (e) => {
-    e.preventDefault()
-    const subject = encodeURIComponent('Inquiry about hiring')
-    const body = encodeURIComponent('Hello,\n\nI am interested in hiring you for a project. Here are some details:\n\n[Please describe your project or requirements here]\n\nLooking forward to hearing from you!\n\nBest regards,\n[Your Name]')
-    window.location.href = `mailto:chokshiroshan@gmail.com?subject=${subject}&body=${body}`
+  const handleHireMe = (e: React.MouseEvent<HTMLButtonElement>) => { // Specify the type for 'e'
+    e.preventDefault();
+    const subject = encodeURIComponent('Inquiry about hiring');
+    const body = encodeURIComponent('Hello,\n\nI am interested in hiring you for a project. Here are some details:\n\n[Please describe your project or requirements here]\n\nLooking forward to hearing from you!\n\nBest regards,\n[Your Name]');
+    window.location.href = `mailto:chokshiroshan@gmail.com?subject=${subject}&body=${body}`;
   }
 
   return (
