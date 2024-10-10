@@ -42,10 +42,8 @@ const useTypewriter = (text: string, speed: number = 50) => {
 }
 
 export default function MainPage() {
-  const [selectedStructure, setSelectedStructure] = useState<string | null>(null)
   const animatedTitle = useTypewriter('More Coming Soon!')
   const animatedDescription = useTypewriter("I'm working on additional probabilistic data structure simulations. Stay tuned!")
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
 
   const handleCardClick = (name: string) => {
@@ -63,19 +61,16 @@ export default function MainPage() {
 
   return (
     <div className={`max-w-4xl mx-auto min-h-screen p-4 space-y-6 relative`}>
-      {/* <div className="w-full max-w-6xl flex justify-end mb-4">
-        <ToggleSwitch isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      </div> */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center mb-12 mt-8"
       >
-        <h1 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'} mb-4`}>
+        <h1 className={`text-4xl font-bold text-white mb-4`}>
           Probabilistic Data Structure Simulations
         </h1>
-        <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+        <p className={`text-xl text-gray-300`}>
           Choose a data structure to explore its simulation
         </p>
       </motion.div>
@@ -91,7 +86,7 @@ export default function MainPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleCardClick(structure.name)}
-              className={`relative h-64 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg overflow-hidden cursor-pointer`}
+              className={`relative h-64 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer`}
             >
               <Image
                 src={structure.image}

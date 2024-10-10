@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { AlertCircle, CheckCircle2, Hash, ChevronUp, ChevronDown, ArrowLeft, Cpu, Fingerprint, ToggleLeft, Search, AlertTriangle, Globe, Database, Cloud, Bitcoin, Sparkles, BookOpenCheck, Briefcase } from 'lucide-react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useRouter } from 'next/navigation'
@@ -18,7 +18,7 @@ const hashFunctions = {
     let h1 = 0xdeadbeef
     let h2 = 0x41c6ce57
     for (let i = 0; i < str.length; i++) {
-      let ch = str.charCodeAt(i)
+      const ch = str.charCodeAt(i)
       h1 = Math.imul(h1 ^ ch, 0x85ebca77)
       h2 = Math.imul(h2 ^ ch, 0xc2b2ae3d)
     }

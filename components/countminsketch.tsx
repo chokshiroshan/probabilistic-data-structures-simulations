@@ -348,7 +348,7 @@ export default function CountMinSketchSimulation() {
             <h2 className="text-xl font-semibold mb-2">Query Result:</h2>
             <p className="flex items-center">
               <Hash className="text-blue-500 mr-2" />
-              Estimated count for "{queryWord}": {queryResult}
+              Estimated count for &quot;{queryWord}&quot;: {queryResult}
             </p>
             <p className="mt-2 text-sm text-gray-600">
               (Actual count: {addedWords.find(w => w.word === queryWord)?.count || 0})

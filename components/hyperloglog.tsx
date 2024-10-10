@@ -188,7 +188,7 @@ export default function HyperLogLogPlusPlusSimulation() {
     let estimate = alpha * m * m / harmonicMean
 
     if (estimate <= 2.5 * m) {
-      let V = buckets.filter(v => v === 0).length
+      const V = buckets.filter(v => v === 0).length
       if (V > 0) {
         estimate = m * Math.log(m / V)
       }
