@@ -247,22 +247,31 @@ export default function HyperLogLogPlusPlusSimulation() {
             />
             <Button onClick={addSingleElement} disabled={isAddingBulk}>Add</Button>
           </div>
-          <div className="flex items-center mb-4">
-            <Input
-              type="number"
-              value={bulkCount}
-              onChange={(e) => setBulkCount(Math.max(1, parseInt(e.target.value) || 0))}
-              onKeyPress={(e) => handleKeyPress(e, () => addBulkElements(false))}
-              className="w-24 mr-2"
-              placeholder="Bulk count"
-            />
-            <Button onClick={() => addBulkElements(false)} disabled={isAddingBulk} className="mr-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4">
+          <Input
+            type="number"
+            value={bulkCount}
+            onChange={(e) => setBulkCount(Math.max(1, parseInt(e.target.value) || 0))}
+            className="w-full sm:w-24 mb-2 sm:mb-0 sm:mr-2"
+            placeholder="Bulk count"
+          />
+          <div className="flex flex-col sm:flex-row w-full sm:w-auto space-y-2 sm:space-y-0 sm:space-x-2">
+            <Button 
+              onClick={() => addBulkElements(false)} 
+              disabled={isAddingBulk}
+              className="w-full sm:w-auto"
+            >
               {isAddingBulk ? 'Adding...' : 'Add Bulk (Random)'}
             </Button>
-            <Button onClick={() => addBulkElements(true)} disabled={isAddingBulk || !currentElement}>
+            <Button 
+              onClick={() => addBulkElements(true)} 
+              disabled={isAddingBulk || !currentElement}
+              className="w-full sm:w-auto"
+            >
               {isAddingBulk ? 'Adding...' : 'Add Bulk (Duplicate)'}
             </Button>
           </div>
+        </div>
         </motion.div>
 
         <motion.div
