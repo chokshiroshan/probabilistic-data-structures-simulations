@@ -90,9 +90,9 @@ export default function MainPage() {
             >
               <Image
                 src={structure.image}
-                alt="Probabilistic Data Structure Visualization"
+                alt={structure.name}
                 objectFit="cover"
-                className="transition-transform duration-300 transform hover:scale-110"
+                className="w-full h-auto transition-transform duration-300 transform hover:scale-110"
                 style={{
                   position: 'relative',
                 }}

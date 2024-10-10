@@ -212,10 +212,10 @@ export default function BloomFilterSimulation() {
       >
         <Label className="text-lg font-semibold">Hash Functions:</Label>
         <Tabs defaultValue={selectedHashes.join(',')} onValueChange={handleHashChange}>
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="murmur3,fnv1a">Murmur3 + FNV-1a</TabsTrigger>
-            <TabsTrigger value="murmur3,djb2">Murmur3 + DJB2</TabsTrigger>
-            <TabsTrigger value="fnv1a,djb2">FNV-1a + DJB2</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 gap-2 sm:grid-cols-1">
+            <TabsTrigger value="murmur3,fnv1a" className="text-sm sm:text-xs">Murmur3 + FNV-1a</TabsTrigger>
+            <TabsTrigger value="murmur3,djb2" className="text-sm sm:text-xs">Murmur3 + DJB2</TabsTrigger>
+            <TabsTrigger value="fnv1a,djb2" className="text-sm sm:text-xs">FNV-1a + DJB2</TabsTrigger>
           </TabsList>
         </Tabs>
       </motion.div>
