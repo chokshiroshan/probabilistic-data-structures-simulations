@@ -67,10 +67,10 @@ export default function MainPage() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12 mt-8"
       >
-        <h1 className={`text-4xl font-bold text-white mb-4`}>
+        <h1 className={`text-4xl font-bold text-gray-800 mb-4`}>
           Probabilistic Data Structure Simulations
         </h1>
-        <p className={`text-xl text-gray-300`}>
+        <p className={`text-xl text-gray-600`}>
           Choose a data structure to explore its simulation
         </p>
       </motion.div>
@@ -86,7 +86,7 @@ export default function MainPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleCardClick(structure.name)}
-              className={`relative h-64 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer`}
+              className={`relative h-64 bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer`}
             >
               <Image
                 src={structure.image}
