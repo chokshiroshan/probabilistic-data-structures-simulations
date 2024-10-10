@@ -11,6 +11,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { useRouter } from 'next/navigation'
 import Footer from '@/components/Footer'
+
 const hashFunctions = {
   'xxHash (xxh3)': {
     func: (str: string) => {
